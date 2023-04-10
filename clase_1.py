@@ -18,3 +18,12 @@ def area_circunferencia(radio):
 
 def perimetro_circunferencia(radio):
     return 2*3.14*radio
+
+# Test
+print(area_cuadrado(10))
+print(perimetro_cuadrado(10))
+print(area_rectangulo(5, 2))
+print(area_rectangulo(5, 2))
+print(area_circunferencia(12))
+print(area_circunferencia(12))
+
