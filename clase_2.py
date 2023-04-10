@@ -53,3 +53,51 @@ class CuentaBancaria():
 
     def datos_movimientos(self):
         return list(self.movimientos)
+
+from Math import pi
+
+class Figura:
+    pass
+
+class Cuadrado(Figura):
+    def __init__(self, lado):
+        self.lado = lado 
+
+    def perimetro(self):
+        return self.lado * 4
+
+class Rectangulo(Figura):
+    def __init__(self, lado1, lado2):
+        self.lado1 = lado1 
+        self.lado2 = lado2 
+
+    def perimetro(self):
+        return 2*self.lado1 + 2*self.lado2
+
+# TODO: Pensar en otra posible herencia (taxonomía)
+class Circunferencia(Figura):
+    def __init__(self, radio):
+        self.radio = radio
+    
+    def perimetro(self):
+        return 2*pi*self.radio
+
+    def area(self):
+        return pi*self.radio**2
+
+
+# Pruebas
+c1 = Cuadrado(6)
+c2 = Cuadrado(4)
+print(c1.perimetro())
+print(c2.perimetro())
+
+r1 = Rectangulo(3,4)
+r2 = Rectangulo(4,10)
+print(r1.perimetro())
+print(r2.perimetro())
+
+cir1 = Circunferencia(10)
+cir2 = Circunferencia(5)
+print(cir1.area())
+print(cir2.perimetro())
