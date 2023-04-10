@@ -10,6 +10,21 @@ class CuentaBancaria():
         self.apellido = apellido
         self.moneda = moneda
 
+    # Se agregó los metodos de verificar_saldo, y pagar
+    def verificar_saldo(monto):
+        if self.saldo < monto:
+            return false
+        else:
+            return true
+
+    def pagar(monto, other):
+        if self.verificar_saldo(monto):
+            other.saldo += monto
+            self.saldo -= monto
+            return "Transaccion realizada"
+        else:
+            return "Saldo Insuficiente para realizar la transaccion"
+
     def depositar(self, monto):
         '''Método que nos permite realizar un depósito bancario'''
         self.movimientos.append('DEPOSITO: ' + str(monto))
