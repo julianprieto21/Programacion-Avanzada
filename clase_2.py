@@ -21,6 +21,7 @@ class CuentaBancaria():
         if self.verificar_saldo(monto):
             other.saldo += monto
             self.saldo -= monto
+            self.movimientos.append(f"Transaccion de {self.moneda+monto} a {other.nombre} {other.apellido}")            
             return "Transaccion realizada"
         else:
             return "Saldo Insuficiente para realizar la transaccion"
