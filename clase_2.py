@@ -4,6 +4,7 @@ class CuentaBancaria():
     
     def __init__(self, saldo_inicial, nombre, apellido, moneda = '$'):
         # TODO: Ver la forma de soportar cajas de ahorro y/o cuentas corrientes
+        self.tipo_cuenta = None
         self.movimientos = []
         self.saldo = saldo_inicial
         self.nombre = nombre
@@ -11,20 +12,20 @@ class CuentaBancaria():
         self.moneda = moneda
 
     # Se agregó los metodos de verificar_saldo, y pagar
-    def verificar_saldo(monto):
-        if self.saldo < monto:
-            return false
-        else:
-            return true
+    # def verificar_saldo(monto):
+    #     if self.saldo < monto:
+    #         return false
+    #     else:
+    #         return true
 
-    def pagar(monto, other):
-        if self.verificar_saldo(monto):
-            other.saldo += monto
-            self.saldo -= monto
-            self.movimientos.append(f"Transaccion de {self.moneda+monto} a {other.nombre} {other.apellido}")            
-            return "Transaccion realizada"
-        else:
-            return "Saldo Insuficiente para realizar la transaccion"
+    # def pagar(monto, other):
+    #     if self.verificar_saldo(monto):
+    #         other.saldo += monto
+    #         self.saldo -= monto
+    #         self.movimientos.append(f"Transaccion de {self.moneda+monto} a {other.nombre} {other.apellido}")            
+    #         return "Transaccion realizada"
+    #     else:
+    #         return "Saldo Insuficiente para realizar la transaccion"
 
     def depositar(self, monto):
         '''Método que nos permite realizar un depósito bancario'''
@@ -54,6 +55,38 @@ class CuentaBancaria():
 
     def datos_movimientos(self):
         return list(self.movimientos)
+
+class Cuenta_Corriente(CuentaBancaria):
+    def __init__(self, saldo_inicial, nombre, apellido, limite_descubierto, moneda = '$'):
+        super().__init__(saldo_inicial, nombre, apellido, movimientos, moneda)
+        self.limite_descubierto = limite_descubierto
+        self.tipo_cuenta = "CC"
+
+    def extraer(self, monto):
+        '''Método que nos permite realizar una extracción de un cuenta bancaria'''
+        if self.saldo - monto >= 0:
+            self.movimientos.append('EXTRACCION: ' + str(monto))
+            self.saldo = self.saldo - monto
+        else:
+            if self.saldo - monto <= self.limite_descubierto:
+                self.movimientos.append('EXTRACCION: ' + str(monto))
+                self.saldo = self.saldo - monto
+            else:
+                self.movimientos.append('SALDO INSUFICIENTE: ' + str(monto)) 
+                print("Saldo insuficiente")
+        
+
+    def datos_titular(self):
+        return f"{self.apellido}, {self.nombre} con el saldo: {self.saldo} {self.moneda}. Tipo de cuenta: {self.tipo_cuenta} con un limite descubierto de {self.limite_descubierto}"
+
+
+class Caja_de_Ahorro(CuentaBancaria):
+    def __init__(self, saldo_inicial, nombre, apellido, moneda = '$'):
+        super().__init__(saldo_inicial, nombre, apellido, movimientos, moneda)
+        self.tipo_cuenta = "CA"
+    
+
+
 
 from Math import pi
 
