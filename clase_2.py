@@ -1,3 +1,10 @@
+
+class Persona():
+    def __init__(self, nombre, apellido, dni):
+        self.nombre = nombre
+        self.apellido = apellido
+        self.dni = dni
+
 class CuentaBancaria():
     ''' Clase que nos permite la gestión de una Cuenta Bancaria genérica!
     '''
@@ -57,7 +64,7 @@ class CuentaBancaria():
         return list(self.movimientos)
 
 class Cuenta_Corriente(CuentaBancaria):
-    def __init__(self, saldo_inicial, nombre, apellido, limite_descubierto, moneda = '$'):
+    def __init__(self, saldo_inicial, nombre, apellido, movimientos, limite_descubierto, moneda = '$'):
         super().__init__(saldo_inicial, nombre, apellido, movimientos, moneda)
         self.limite_descubierto = limite_descubierto
         self.tipo_cuenta = "CC"
@@ -81,15 +88,15 @@ class Cuenta_Corriente(CuentaBancaria):
 
 
 class Caja_de_Ahorro(CuentaBancaria):
-    def __init__(self, saldo_inicial, nombre, apellido, moneda = '$'):
+    def __init__(self, saldo_inicial, nombre, apellido, movimientos, moneda = '$'):
         super().__init__(saldo_inicial, nombre, apellido, movimientos, moneda)
         self.tipo_cuenta = "CA"
     
 
 
 
-from Math import pi
-
+# from Math import pi
+pi = 3.1416
 class Figura:
     pass
 
