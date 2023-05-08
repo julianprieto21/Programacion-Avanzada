@@ -92,5 +92,66 @@ def tabla_de(num):
         print(f"{num} x {i} = {num*i}")
 
 # VII.
+def area_circunferencia(radio, pi):
+    return pi*radio**2
+def area_rectangulo(lado_a, lado_b):
+    return lado_a * lado_b
+def area_cuadrado(lado):
+    return lado*lado
 
+# VIII
+def calculo_rebaja(precio_prev, precio_sig):
+    porcentaje = precio_sig * 100 / precio_prev
+    return porcentaje
+
+
+# IX
+def calculo_nuevo_precio(precio_prev, porcentaje):
+    resultado = porcentaje * precio_prev / 100
+    return resultado
+
+# X
+def calculo_transporte(alumnos_1, alumnos_2, alumnos_3, asientos):
+    alumnos = alumnos_1 + 3 + alumnos_2 + 3 + alumnos_3 + 3
+    transportes = alumnpos / asientos
+    return int(transportes + 1)
+
+# XI 
+def armo_cartel(producto, precio_prev, precio_sig):
+    print("********************************")
+    print("Atención!!! Gran rebaja para el producto nombre " + producto)
+    print("Antes: precio anterio " + precio_prev)
+    print("Ahora: precio rebajado " + precio_sig)
+
+# XII
+def calculo_litros(alto, ancho, profundidad):
+    metros_cub = alto * ancho * profundidad
+    litros = metros_cub * 1000
+    return litros
+
+# XIII
+def a_pagar(cant_personas, monto_bebida, monto_comida, monto_alquiler):
+    total = monto_bebida + monto_comida + monto_alquiler
+    monto_unitario = total / cant_personas
+    return monto_unitario
+
+# XIV
+def convertir_a_dolar(monto):
+    return monto * 470
+def convertir_a_euro(monto):
+    return monto * 250
+def convertir_a_real(monto):
+    return monto * 45
+
+# XV
+def calculo_dosis(cant_dias, cant_veces, cant_comprimidos):
+    total = cant_dias * cant_veces
+    if total > cant_comprimidos:
+        return False
+    else: # total <= cant_comprimidos 
+        return True
+
+# XVI
+def precio_con_iva(monto):
+    return monto * 1.21
 
