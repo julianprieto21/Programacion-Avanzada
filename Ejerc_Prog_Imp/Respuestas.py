@@ -137,11 +137,48 @@ def a_pagar(cant_personas, monto_bebida, monto_comida, monto_alquiler):
 
 # XIV
 def convertir_a_dolar(monto):
-    return monto * 470
+    res = monto / 470
+    return round(res, 2)
 def convertir_a_euro(monto):
-    return monto * 250
+    res = monto / 250
+    return round(res, 2)
 def convertir_a_real(monto):
-    return monto * 45
+    res = monto / 45
+    return round(res, 2)
+
+# Clases
+class MontoPesos():
+    def __init__(self, monto):
+        self.monto = monto
+        self.cotizacion = {"dolar": 470, "real": 45, "euro": 250}
+
+    def actualizar_cotizaciones(self, moneda, cotizacion):
+        self.cotizacion[moneda] = cotizacion
+
+    def convertir(self, moneda):
+        res = self.monto / self.cotizaciones[moneda]
+        return round(res, 2)
+
+    def a_dolar(self, cotizacion):
+        res = self.monto / cotizacion
+        return round(res, 2)
+    def a_euro(self, cotizacion):
+        res = self.monto / cotizacion
+        return round(res, 2)
+    def a_real(self, cotizacion):
+        res = self.monto / cotizacion
+        return round(res, 2)
+
+monto = MontoPesos(100000)
+# print(monto.a_dolar(470))
+# print(monto.a_euro(250))
+# print(monto.a_real(45))
+# print(monto.a_dolar(100))
+# print(monto.a_real(15000))
+# print(monto.a_euro(10))
+print(monto.convertir("dolar"))
+
+
 
 # XV
 def calculo_dosis(cant_dias, cant_veces, cant_comprimidos):
@@ -154,4 +191,86 @@ def calculo_dosis(cant_dias, cant_veces, cant_comprimidos):
 # XVI
 def precio_con_iva(monto):
     return monto * 1.21
+
+# XVII
+def sumaPrimUlt(lista):
+    prim = lista[0]
+    ult = lista[-1]
+    return prim + ult
+def promedioPrimUlt(list):
+    prim = lista[0]
+    ult = lista[-1]
+    total = prim + ult
+    return total / 2
+lista = [1, 1, 1]
+lista[0] = int(input("Ingrese el primer valor: "))
+lista[1] = int(input("Ingrese el segundo valor: "))
+lista[2] = int(input("Ingrese el ultimo valor: "))
+print(sumaPrimUlt(lista))
+print(promedioPrimUlt(lista))
+
+# XVIII
+def cargarFraccion():
+    num = int(input("Ingrese numerador: "))
+    den = int(input("Ingrese denominador: "))
+    lista = [num, den]
+    return lista
+def numeradorFraccion(x):
+    return x[0]
+def denominadorFraccion(x):
+    return x[1]
+
+def sumaFracciones(x, y)
+    if x[1] == y[1]:
+        z = [x[0] + y[0], x[1]]
+        return z
+    else:
+        num = x[1] * y[0] + x[0] * y[1]
+        den = x[1] * y[1]
+        z = [num, den]
+        return z
+
+def restaFracciones(x, y):
+    if denominadorFraccion(x) == denominadorFraccion(y):
+        z = [numeradorFraccion(x) - numeradorFraccion(y), denominadorFraccion(x)]
+        return z
+    else:
+        num = denominadorFraccion(x) * numeradorFraccion(y) - numeradorFraccion(x) * denominadorFraccion(y)
+        den = denominadorFraccion(x) * denominadorFraccion(y)
+        z = [num, den]
+        return z
+
+def divisionFracciones(x, y):
+    num = numeradorFraccion(x) * denominadorFraccion(y)
+    den = denominadorFraccion(x) * numeradorFraccion(y)
+    return [num, den]
+
+def multiplicacionFracciones(x, y):
+    num = numeradorFraccion(x) * numeradorFraccion(y)
+    den = denominadorFraccion(x) * denominadorFraccion(y)
+    return [num, den]
+print("Bienvenidos/as a cuentas con Fracciones")
+a = cargarFraccion()
+b = cargarFraccion()
+print("El denominador de la primera fraccion es: " + denominadorFraccion(a))
+print("El numerador de la segunda fraccion es:" + numeradorFraccion(b))
+print("La suma de dichas fracciones es:" + sumaFracciones(a, b))
+print("La resta de dichas fracciones es:" + restaFracciones(a, b))
+print("La multiplicacion de dichas fracciones es:" + multiplicacionFracciones(a, b))
+print("La division es:" + divisionFracciones(a, b))
+# Clases
+class Fraccion():
+    def __init__(self, numerador, denominador):
+        self.numerador = numerador
+        self.denominador = denominador
+        self.fraccion = [numerador, denominador]
+    def sumar(self, other):
+        if self.denominador == other.denominador:
+            num = self.numerador + other.numerador
+            fraccion_nueva = [num, self.denominador]
+            return fraccion_nueva
+        else:
+
+
+
 
